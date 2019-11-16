@@ -1,0 +1,17 @@
+def sum_for_list(lst):
+    # Sieve of Eratosthenes
+    max_number = max(lst, key=abs)
+    max_number = abs(max_number)
+    not_primes = set()
+    result = list()
+    for number in range(2, max_number + 1):
+        k = 2
+        while k * number <= max_number:
+            if k * number in range(2, max_number + 1):
+                not_primes.add(k * number)
+            k += 1
+    primes = [i for i in range(2, max_number + 1) if i not in not_primes]
+    for prime in primes:
+        if any(n % prime == 0 for n in lst):
+            result.append([prime, sum(i for i in lst if i % prime == 0)])
+    return result
