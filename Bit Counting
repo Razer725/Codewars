@@ -1,0 +1,3 @@
+def countBits(n):
+    string = str(bin(n))
+    return string.count('1')
