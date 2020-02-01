@@ -1,0 +1,9 @@
+def is_isogram(string):
+    low = string.lower()
+    for i in range(len(string)):
+        k = i + 1
+        while k < len(string):
+            if low[i] == low[k]:
+                return False
+            k += 1
+    return True
