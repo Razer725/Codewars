@@ -1,0 +1,10 @@
+def anagrams(word, words):
+    anagram = []
+    m_word = list(word)
+    m_word.sort()
+    for w in words:
+        anagram_test = list(w)
+        anagram_test.sort()
+        if m_word == anagram_test:
+            anagram.append(w)
+    return anagram
