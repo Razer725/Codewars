@@ -1,0 +1,15 @@
+def sum_dig_pow(a, b):  # range(a, b + 1) will be studied by the function
+    out = []
+    for number in range(a, b + 1):
+        power = 1
+        s = 0
+        if number < 10:
+            out.append(number)
+        else:
+            lst = list(str(number))
+            for digit in lst:
+                s += int(digit) ** power
+                power += 1
+            if number == s:
+                out.append(number)         
+    return out
