@@ -1,0 +1,7 @@
+def narcissistic( value ):
+    lst = list(str(value))
+    s = 0
+    for i in lst:
+        s += int(i)**len(lst)
+    return s == value
+    
