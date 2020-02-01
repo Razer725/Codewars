@@ -1,0 +1,12 @@
+def move_zeros(array):
+    array_new = []
+    zero_cnt = 0
+    for elem in array:
+        if elem is False:
+            array_new.append(elem)
+        elif elem == 0 or elem == 0.0:
+            zero_cnt += 1
+        else: 
+            array_new.append(elem)
+    array_new += [i*0 for i in range(zero_cnt)]
+    return array_new
