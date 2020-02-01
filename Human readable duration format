@@ -1,0 +1,45 @@
+def format_duration(seconds):
+    if seconds == 0:
+        return 'now'
+    else:
+        years = days = hours = minutes = 0
+        if seconds > 59:
+            minutes = seconds // 60
+            seconds = seconds % 60
+            if minutes > 59:
+                hours = minutes // 60
+                minutes = minutes % 60
+                if hours > 23:
+                    days = hours // 24
+                    hours = hours % 24
+                    if days > 364:
+                        years = days // 365
+                        days = days % 365
+        duration = [years, days, hours, minutes, seconds]
+        date = ['year', 'day', 'hour', 'minute', 'second']
+        duration_out = ' '
+        for i in range(5):
+            if duration[i] == 0:
+                continue
+            elif duration[i] == 1:
+                duration_out += str(duration[i]) + ' ' + date[i] + ' '
+            else:
+                duration_out += str(duration[i]) + ' ' + date[i] + 's '
+        print(duration_out)
+        duration = duration_out.split()
+
+        if len(duration) > 2:
+            out = ''
+            j = len(duration)
+            for i in range(j-2):
+                if i % 2 == 0:
+                    out += str(duration[i]) + ' '
+                else:
+                    if i == j-3:
+                        out += str(duration[i]) + ' '
+                    else:
+                        out += str(duration[i]) + ', '
+            out += 'and' + ' ' + str(duration[-2]) + ' ' + str(duration[-1])
+            return out
+        else:
+            return str(duration[0]) + ' ' + str(duration[1])
